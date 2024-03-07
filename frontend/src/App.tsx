@@ -1,8 +1,9 @@
 import { useEffect, useState, SetStateAction } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/login/login";
+import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
+import Map from "./pages/map/Map";
 
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
 const anonKey = import.meta.env.VITE_ANON_KEY;
@@ -34,6 +35,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login/>}/>
         <Route path="/home" element={<Home/>}/>
+        <Route path="/map" element={<Map/>}/>
       </Routes>
     </Router>
   );
