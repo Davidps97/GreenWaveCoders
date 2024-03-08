@@ -1,24 +1,18 @@
 import { useEffect, useState, SetStateAction } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/login/login";
-import Home from "./pages/home/Home";
+import { supabase } from "@/config/db.config.ts";
+import Login from "@/pages/Login";
+import Home from "@/pages/Home";
 
-const projectUrl = import.meta.env.VITE_PROJECT_URL;
-const anonKey = import.meta.env.VITE_ANON_KEY;
 
-const supabase = createClient(projectUrl, anonKey);
-
-type user = {
+type User = {
   name : string,
   email : string,
   password : string
 };
 
 function App() {
-  const [users, setUsers] = useState<user[]>([
-    
-  ]);
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
     getUsers();
@@ -26,7 +20,7 @@ function App() {
 
   async function getUsers() {
     const { data } = await supabase.from("users").select();
-    setUsers(data as SetStateAction<user[]>);
+    setUsers(data as SetStateAction<User[]>);
   }
 
   return (
@@ -34,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login/>}/>
         <Route path="/home" element={<Home/>}/>
+        <Route path="/" element={<Home/>}/>
       </Routes>
     </Router>
   );

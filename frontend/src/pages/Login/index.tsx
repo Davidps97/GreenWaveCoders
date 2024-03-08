@@ -1,12 +1,7 @@
-import { createClient } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { useNavigate } from "react-router-dom";
-
-const projectUrl = import.meta.env.VITE_PROJECT_URL;
-const anonKey = import.meta.env.VITE_ANON_KEY;
-
-const supabase = createClient(projectUrl, anonKey);
+import {supabase} from "@/config/db.config.ts";
 
 function Login() {
   const navigate = useNavigate();
