@@ -17,7 +17,7 @@ function Navbar({ selectedPage, setSelectedPage, isTopOfPage}: Props) {
     const flexBetween = 'flex items-center justify-between';
     const isAboveMediumScreens = useMediaQuery("(min-width: 1024px)");
 
-    const navbarWithScroll = isTopOfPage ? '' : 'drop-shadow-xl';
+    const navbarWithScroll = isTopOfPage ? '' : 'shadow-xl';
 
     return (
       <nav>
