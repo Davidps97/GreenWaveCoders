@@ -24,13 +24,15 @@ function App() {
   }
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/home" element={<Home/>}/>
-        <Route path="/" element={<Home/>}/>
-      </Routes>
-    </Router>
+      <div className='app bg-primary-2'>
+        <Router>
+          <Routes>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/home" element={<Home/>}/>
+            <Route path="/" element={<Home/>}/>
+          </Routes>
+        </Router>
+      </div>
   );
 }
 
