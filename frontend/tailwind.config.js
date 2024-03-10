@@ -27,7 +27,8 @@ export default {
         "m-16" : "16px",
         "k-20" : "20px",
         "k-16" : "16px"
-      }
+      },
+      important: true
     },
     screens: {
       "sm" : "640px",

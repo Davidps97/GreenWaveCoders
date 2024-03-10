@@ -29,7 +29,9 @@ function Card({ article }: Props) {
                             {article.title}
                         </p>
                     </div>
-                    <a className='font-karla text-k-16 font-medium' href={`${article.articleUrl}`} target='_blank'>Learn more</a>
+                    <a className='font-karla text-k-16 font-medium' href={`${article.articleUrl}`} target='_blank'>
+                        Learn more
+                    </a>
                 </div>
             </div>
         </article>

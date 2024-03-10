@@ -1,3 +1,9 @@
 .home {
 
 }
+
+.swiper-pagination-important {
+    width: fit-content !important;
+    bottom: 0 !important;
+    top: 0 !important;
+}
