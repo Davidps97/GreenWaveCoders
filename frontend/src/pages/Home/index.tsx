@@ -6,6 +6,7 @@ import {SelectedPage} from "@/shared/SelectedPage.ts";
 import './Home.css';
 import 'swiper/swiper-bundle.css';
 import News from "@/components/News";
+import Infos from "@/components/Infos";
 //import {useNavigate} from "react-router-dom";
 
 function Home() {
@@ -47,14 +48,15 @@ function Home() {
     // </>
 
     return (
-      <div className='h-auto w-full flex flex-col bg-primary-2'>
-          <header>
-              <Navbar selectedPage={selectedPage} setSelectedPage={setSelectedPage} isTopOfPage={isTopOfPage} />
-          </header>
-          <main className='mt-20 h-full w-full'>
-              <News />
-          </main>
-      </div>
+        <div className='h-auto w-[100vw] flex flex-col bg-primary-2 pb-10'>
+            <header>
+                <Navbar selectedPage={selectedPage} setSelectedPage={setSelectedPage} isTopOfPage={isTopOfPage}/>
+            </header>
+            <main className='mt-20 h-full w-full'>
+                <Infos/>
+                <News/>
+            </main>
+        </div>
     );
 }
 
