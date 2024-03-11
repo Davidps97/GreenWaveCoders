@@ -2,7 +2,6 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState, SetStateAction, Key } from "react";
 import { createClient } from "@supabase/supabase-js";
-import MyEvents from "../../components/my-events/MyEvents";
 
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
 const anonKey = import.meta.env.VITE_ANON_KEY;
