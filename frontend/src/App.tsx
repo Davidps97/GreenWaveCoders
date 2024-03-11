@@ -1,8 +1,18 @@
+import { useEffect, useState, SetStateAction } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/login/login";
 import Home from "./pages/home/Home";
-import Map from "./pages/map/Map";
-import MyEvent from "./pages/my-event/MyEvent";
+
+const projectUrl = import.meta.env.VITE_PROJECT_URL;
+const anonKey = import.meta.env.VITE_ANON_KEY;
+
+const supabase = createClient(projectUrl, anonKey);
+
+type user = {
+  name : string,
+  email : string,
+  password : string
+};
 
 function App() {
     return (
@@ -12,6 +22,7 @@ function App() {
         <Route path="/home" element={<Home/>}/>
         <Route path="/map" element={<Map/>}/>
         <Route path="/myEvent" element={<MyEvent/>}/>
+        <Route path="/" element={<Home/>}/>
       </Routes>
     </Router>
   );
