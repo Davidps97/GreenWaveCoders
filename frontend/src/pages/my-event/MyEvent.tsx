@@ -38,15 +38,17 @@ function MyEvent() {
           <h1>My Events</h1>
         </div>
         <div className="myEvent-list">
-            <div className="myEvent-self-body">
+          {myEvents.map((event, index) => (
+            <div className={`${index%2===0?"myEvent-self-body":"myEvent-self-body-reverse"}`} >
                 <div className="myEvent-title-button">
-                    <div>Clean El Confital Beach</div>
+                    <div>{event.title}</div>
                     <button className="drop-shadow-[0_20px_13px_rgba(0,0,0,0.03)]">See Location</button>
                 </div>
                 <div className="myEvent-img">
                     <div>Joined</div>
                 </div>
             </div>
+          ))}
         </div>
       </div>
     </>
