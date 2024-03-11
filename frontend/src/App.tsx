@@ -1,18 +1,8 @@
-import { useEffect, useState, SetStateAction } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/login/login";
-import Home from "./pages/home/Home";
-
-const projectUrl = import.meta.env.VITE_PROJECT_URL;
-const anonKey = import.meta.env.VITE_ANON_KEY;
-
-const supabase = createClient(projectUrl, anonKey);
-
-type user = {
-  name : string,
-  email : string,
-  password : string
-};
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import Map from "./pages/map/Map";
+import MyEvent from "./pages/my-event/MyEvent";
 
 function App() {
     return (
