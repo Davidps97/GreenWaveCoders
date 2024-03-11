@@ -8,11 +8,10 @@ function Login() {
 
   supabase.auth.onAuthStateChange(async (event) => {
     if (event === "SIGNED_OUT") {
-      
-        navigate("/login");
 
+      navigate("/login");
     } else if (event === "SIGNED_IN") {
-
+      
       navigate("/home");
     }
   });
