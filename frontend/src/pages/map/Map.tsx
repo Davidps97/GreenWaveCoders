@@ -7,8 +7,6 @@ import { useLocation } from "react-router-dom";
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
 const anonKey = import.meta.env.VITE_ANON_KEY;
 
-const supabase = createClient(projectUrl, anonKey);
-
 type location = {
   id: number;
   latitude: number;
@@ -29,11 +27,13 @@ function Map() {
   }, []);
 
   async function getLocations() {
+    const supabase = createClient(projectUrl, anonKey);
     const { data } = await supabase.from("maps").select();
     setLocations(data as SetStateAction<location[]>);
   }
 
   async function getEvents(id: number | null) {
+    const supabase = createClient(projectUrl, anonKey);
     console.log(id);
     const { data } = await supabase.from("maps").select().eq("id", id);
     if (data) setEvent(data[0]);
@@ -49,12 +49,12 @@ function Map() {
         {event && (
           <MapContainer
             center={[event.latitude, event.longitude]}
-            zoom={2}
+            zoom={15}
             style={{ height: "100vh", width: "100%" }}
           >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://%7Bs%7D.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png"
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {locations.map((location) => (
               <div key={location.id}>
@@ -82,7 +82,7 @@ function Map() {
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://%7Bs%7D.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png"
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {locations.map((location) => (
           <div key={location.id}>
