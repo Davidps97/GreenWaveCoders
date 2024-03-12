@@ -2,7 +2,7 @@ import { useEffect, useState, SetStateAction } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "@/pages/Login";
 import Home from "@/pages/Home";
-import supabase from '@/config/db.config.ts';
+import {supabase} from '@/config/db.config.ts';
 
 type User = {
   name : string,

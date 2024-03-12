@@ -46,7 +46,7 @@ function Home() {
     // </>
 
     return (
-      <div className='home h-full w-full flex flex-col'>
+      <div className='home h-auto w-full flex flex-col'>
           <header>
               <Navbar selectedPage={selectedPage} setSelectedPage={setSelectedPage} isTopOfPage={isTopOfPage}/>
           </header>
