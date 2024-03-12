@@ -1,58 +1,25 @@
-// import {useNavigate} from "react-router-dom";
 import Navbar from "@/components/Navbar";
-//import {supabase} from "@/config/db.config.ts";
+import {supabase} from "@/config/db.config.ts";
 import {useEffect, useState, useRef} from "react";
 import {SelectedPage} from "@/shared/SelectedPage.ts";
 import './Home.css';
 import 'swiper/swiper-bundle.css';
 import News from "@/pages/Home/News.tsx";
 import Infos from "@/components/Infos";
-import Button from "@/components/Button";
-//import {useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import TopPage from "./TopPage.tsx";
 import OceanWaves from '@/assets/OceanWaves.mp4';
+import Map from "@/pages/Map/Map.tsx";
+import MapComponent from "@/components/MapComponent";
 
-function Home() {
-    const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Home);
+type Props = {
+    selectedPage: SelectedPage;
+    isTopOfPage: boolean;
+    setSelectedPage: (value: SelectedPage) => void;
+}
+
+function Home({selectedPage, setSelectedPage, isTopOfPage}: Props) {
     //const navigate = useNavigate();
-    const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
-
-
-    useEffect(() => {
-
-        const handleScroll = () => {
-            if (window.scrollY === 0) {
-                setIsTopOfPage(true);
-            }
-
-            if (window.scrollY !== 0) {
-                setIsTopOfPage(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    // useEffect(() => {
-    //     console.log(window.scrollY);
-    //     console.log(window.innerHeight);
-    //     console.log(window.innerWidth);
-    //
-    //     const handleScroll = () => {
-    //         const isScrolled = window.scrollY > window.innerHeight;
-    //         setIsTopOfPage(!isScrolled);
-    //         console.log(!isScrolled);
-    //     };
-    //
-    //     window.addEventListener('scroll', handleScroll);
-    //
-    //     return () => window.removeEventListener('scroll', handleScroll);
-    // }, [setIsTopOfPage]); // Include setIsTopOfPage as a dependency
-
-// Log the updated value of isTopOfPage here if needed
-    //console.log(isTopOfPage);
 
     // const signOutUser = () => {
     // supabase.auth.signOut().then(({ error }) => {

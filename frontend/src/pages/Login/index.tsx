@@ -2,8 +2,14 @@ import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { useNavigate } from "react-router-dom";
 import {supabase} from "@/config/db.config.ts";
+import {SelectedPage} from "@/shared/SelectedPage.ts";
 
-function Login() {
+type Props = {
+  selectedPage: SelectedPage;
+  setSelectedPage: (value: SelectedPage) => void;
+}
+
+function Login({selectedPage, setSelectedPage}: Props) {
   const navigate = useNavigate();
 
   supabase.auth.onAuthStateChange(async (event) => {
