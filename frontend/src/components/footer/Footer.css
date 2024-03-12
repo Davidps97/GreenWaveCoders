@@ -1,0 +1,30 @@
+.footer-body {
+    height: 12em;
+    max-width: 100%;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left-side {
+    width: 40%;
+    height: 8em;
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+}
+
+.footer-right-side {
+    width: 40%;
+    height: 8em;
+    display: flex;
+    flex-direction: column;
+    background-color: blueviolet;
+}
+
+.footer-icons {
+    display: flex;
+    flex-direction: row;
+}

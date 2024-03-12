@@ -13,20 +13,20 @@
 .myEvent-self-body {
   display: flex;
   flex-direction: row;
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin-top: 5em;
+  margin-bottom: 5em;
 }
 
 .myEvent-title-button {
-  width: 45%;
+  width: 53%;
   display: flex;
-  margin-top: 10px;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .myEvent-title-button div {
-  font-size: larger;
+  font-size: xx-large;
   font-weight: bolder;
   color: white;
 }
@@ -40,10 +40,12 @@
   padding-bottom: 5px;
   border-radius: 5px;
   font-weight: 500;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .myEvent-img {
-  width: 55%;
+  position: relative;
+  width: 47%;
   background-color: #c3bbbb;
   height: 152px;
   border-bottom-left-radius: 25px;
@@ -59,11 +61,31 @@
   padding-top: 3px;
   padding-left: 8px;
   padding-right: 8px;
-  top: 260px;
+  bottom: 5px;
   right: 5px;
   color: white;
   font-weight: 400;
   border-radius: 5px;
   display: flex;
   justify-content: center;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/*Reverse list*/
+.myEvent-self-body-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.myEvent-self-body-reverse .myEvent-img {
+  border-radius: 0;
+  border-bottom-right-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.myEvent-self-body-reverse .myEvent-img div {
+  right: 0;
+  left: 5px;
 }
