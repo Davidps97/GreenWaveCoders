@@ -14,8 +14,11 @@ function Link({ page, selectedPage, setSelectedPage, isAboveMediumScreen }: Prop
         <a
             href={`${lowerCasePage}`}
             onClick={() => setSelectedPage(lowerCasePage)}
-            className={`${selectedPage === lowerCasePage && isAboveMediumScreen ? 'text-primary-4' : 'text-black'}
-                        ${!isAboveMediumScreen && lowerCasePage === SelectedPage.SignIn ? 'text-primary-4' : 'text-black'} font-karla font-medium text-k-16` }
+            className={`
+                        ${selectedPage === lowerCasePage && isAboveMediumScreen ? 'text-primary-4' : 'text-black'}
+                        ${!isAboveMediumScreen && lowerCasePage === SelectedPage.SignIn ? 'text-primary-4' : 'text-black'} font-karla font-medium text-k-16
+                        hover:text-primary-4
+                      `}
         >
             { page }
         </a>

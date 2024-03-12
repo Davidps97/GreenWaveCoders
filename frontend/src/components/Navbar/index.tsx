@@ -35,7 +35,7 @@ function Navbar({ selectedPage, setSelectedPage, isTopOfPage}: Props) {
                                       <div className={`${flexBetween} w-full`}>
                                           <div className={`${flexBetween} gap-8 text-sm`}>
                                               <Link page='Home' selectedPage={selectedPage} setSelectedPage={setSelectedPage} isAboveMediumScreen={isAboveMediumScreens}/>
-                                              <Link page='Info' selectedPage={selectedPage} setSelectedPage={setSelectedPage} isAboveMediumScreen={isAboveMediumScreens}/>
+                                              <Link page='Infos' selectedPage={selectedPage} setSelectedPage={setSelectedPage} isAboveMediumScreen={isAboveMediumScreens}/>
                                               <Link page='Map' selectedPage={selectedPage} setSelectedPage={setSelectedPage} isAboveMediumScreen={isAboveMediumScreens}/>
                                           </div>
 

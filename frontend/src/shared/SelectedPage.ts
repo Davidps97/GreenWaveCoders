@@ -1,7 +1,7 @@
 export enum SelectedPage {
     Home = 'home',
     Login = 'login',
-    Info = 'info',
+    Infos = 'infos',
     Map = 'map',
     SignIn = 'sign-in'
 }

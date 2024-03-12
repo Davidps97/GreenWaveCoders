@@ -5,6 +5,7 @@ import Login from "@/pages/Login";
 import Home from "@/pages/Home";
 import Map from "@/pages/Map/Map";
 import {SelectedPage} from "@/shared/SelectedPage.ts";
+import Informations from "@/pages/Informations";
 
 
 type User = {
@@ -23,20 +24,17 @@ function App() {
   }, []);
 
   useEffect(() => {
-
     const handleScroll = () => {
       if (window.scrollY === 0) {
         setIsTopOfPage(true);
       }
 
-      if (window.scrollY !== 0) {
-        setIsTopOfPage(false);
-      }
+      if (window.scrollY !== 0) setIsTopOfPage(false);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   async function getUsers() {
@@ -50,7 +48,8 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>}/>
             <Route path="/home" element={<Home selectedPage={selectedPage} setSelectedPage={setSelectedPage} isTopOfPage={isTopOfPage}/>} />
-            <Route path="/map" element={<Map selectedPage={selectedPage} setSelectedPage={setSelectedPage} />}/>
+            <Route path="/map" element={<Map />}/>
+            <Route path="/infos" element={<Informations selectedPage={selectedPage} setSelectedPage={setSelectedPage} isTopOfPage={isTopOfPage} />}/>
             <Route path="/" element={<Home selectedPage={selectedPage} setSelectedPage={setSelectedPage} isTopOfPage={isTopOfPage}/>}/>
           </Routes>
         </Router>
