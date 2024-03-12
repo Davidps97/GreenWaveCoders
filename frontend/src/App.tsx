@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { supabase } from "@/config/db.config.ts";
 import Login from "@/pages/Login";
 import Home from "@/pages/Home";
+import Map from "./pages/map/Map";
 
 
 type User = {
@@ -29,6 +30,7 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login/>}/>
             <Route path="/home" element={<Home/>}/>
+            <Route path="/map" element={<Map/>}/>
             <Route path="/" element={<Home/>}/>
           </Routes>
         </Router>

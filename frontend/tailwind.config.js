@@ -39,5 +39,5 @@ export default {
       'xxl': '1400px'
     }
   },
-  plugins: [],
+  plugins: []
 }
