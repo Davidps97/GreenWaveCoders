@@ -1,4 +1,5 @@
 import {SelectedPage} from "@/shared/SelectedPage.ts";
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 type Props = {
     page: string,
@@ -11,14 +12,14 @@ function Link({ page, selectedPage, setSelectedPage, isAboveMediumScreen }: Prop
     const lowerCasePage = page.toLowerCase().replace(/ /g, "-") as SelectedPage;
 
     return (
-        <a
+        <AnchorLink
             href={`${lowerCasePage}`}
             onClick={() => setSelectedPage(lowerCasePage)}
             className={`${(selectedPage === lowerCasePage && isAboveMediumScreen) ? 'text-primary-4' : 'text-black'}
                         ${!isAboveMediumScreen && lowerCasePage === SelectedPage.SignIn ? 'text-primary-4' : 'text-black'} font-karla font-medium text-k-16` }
         >
             { page }
-        </a>
+        </AnchorLink>
     );
 }
 

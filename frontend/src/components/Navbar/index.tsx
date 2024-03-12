@@ -8,19 +8,22 @@ import {useState} from "react";
 
 type Props = {
     selectedPage: SelectedPage;
+    isTopOfPage: boolean;
     setSelectedPage: (value: SelectedPage) => void;
 }
 
-function Navbar({ selectedPage, setSelectedPage}: Props) {
+function Navbar({ selectedPage, setSelectedPage, isTopOfPage}: Props) {
     const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
     const flexBetween = 'flex items-center justify-between';
     const isAboveMediumScreens = useMediaQuery("(min-width: 1024px)");
+
+    const navbarWithScroll = isTopOfPage ? '' : 'shadow-xl';
 
     return (
       <nav>
           {
               !isMenuToggled && (
-                  <div className={`${flexBetween} fixed top-0 z-30 w-full py-6`}>
+                  <div className={`${flexBetween} ${navbarWithScroll} fixed top-0 z-30 w-full py-6`}>
                       <div className={`${flexBetween} mx-auto w-5/6`}>
                           <div className={`${flexBetween} w-full gap-32`}>
                               {/* LEFT SIDE */}

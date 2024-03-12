@@ -1,0 +1,69 @@
+.myEvent-body {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.myEvent-title {
+    font-size: 4em;
+    font-weight: bolder;
+}
+
+.myEvent-self-body {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.myEvent-title-button {
+  width: 45%;
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.myEvent-title-button div {
+  font-size: larger;
+  font-weight: bolder;
+  color: white;
+}
+
+.myEvent-title-button button {
+  width: 113px;
+  margin-top: 10px;
+  background-color: #ffffff;
+  color: rgb(4, 4, 4);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.myEvent-img {
+  width: 55%;
+  background-color: #c3bbbb;
+  height: 152px;
+  border-bottom-left-radius: 25px;
+  border-top-left-radius: 25px;
+  color: white;
+}
+
+.myEvent-img div {
+  position: absolute;
+  width: 5rem;
+  background-color: #004567;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  padding-left: 8px;
+  padding-right: 8px;
+  top: 260px;
+  right: 5px;
+  color: white;
+  font-weight: 400;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
