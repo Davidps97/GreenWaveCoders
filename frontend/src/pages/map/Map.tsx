@@ -3,6 +3,7 @@ import "leaflet/dist/leaflet.css";
 import { useEffect, useState, SetStateAction } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useLocation } from "react-router-dom";
+import Footer from "@/components/footer/Footer";
 
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
 const anonKey = import.meta.env.VITE_ANON_KEY;
@@ -74,7 +75,7 @@ function Map() {
   }
 
   return (
-    <div className="map-main-container h-full">
+    <div className="map-main-container h-full" style={{ position: 'relative' }}>
       <MapContainer
         center={[35.380602, -5.0]}
         zoom={4}
@@ -96,7 +97,11 @@ function Map() {
           </div>
         ))}
       </MapContainer>
+      <div className="footer" style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', zIndex: 9999 }}>
+        <Footer />
+      </div>
     </div>
+
   );
 }
 
