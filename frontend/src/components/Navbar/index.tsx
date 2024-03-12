@@ -1,4 +1,4 @@
-import Logo from '@/assets/Logo.png';
+import Logo from '@/assets/Logo.svg';
 import { UserIcon } from '@heroicons/react/24/outline';
 import Link from "@/components/Navbar/Link.tsx";
 import {SelectedPage} from "@/shared/SelectedPage.ts";
@@ -27,7 +27,7 @@ function Navbar({ selectedPage, setSelectedPage, isTopOfPage}: Props) {
                       <div className={`${flexBetween} mx-auto w-5/6`}>
                           <div className={`${flexBetween} w-full gap-32`}>
                               {/* LEFT SIDE */}
-                              <img src={Logo} alt="logo"/>
+                              <img src={Logo} alt="logo" className='w-36 h-36'/>
 
                               {/* RIGHT SIDE */}
                               {

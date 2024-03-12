@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
+    "@react-three/drei": "^9.101.0",
+    "@react-three/fiber": "^8.15.19",
     "@supabase/auth-ui-react": "^0.4.7",
     "@supabase/auth-ui-shared": "^0.1.8",
     "@supabase/supabase-js": "^2.39.7",
@@ -19,12 +21,14 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2",
     "supabase": "^1.148.6",
-    "swiper": "^11.0.7"
+    "swiper": "^11.0.7",
+    "three": "^0.162.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.25",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
+    "@types/three": "^0.162.0",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "@vitejs/plugin-react": "^4.2.1",
