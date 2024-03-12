@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
+
 import { useNavigate } from "react-router-dom";
 
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
@@ -25,9 +25,14 @@ function Login() {
     <>
       <Auth
         supabaseClient={supabase}
-        appearance={{ theme: ThemeSupa }}
-        theme="dark"
         providers={["google"]}
+        appearance={{
+          style: {
+            input: {
+              border: 0 ,
+            }
+        }}}
+        
       />
     </>
   );
