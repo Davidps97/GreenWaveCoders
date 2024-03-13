@@ -22,7 +22,7 @@ function News() {
         <section className='w-full mt-10'>
             <div className='flex flex-col justify-center mx-auto w-5/6'>
                 <div className='flex justify-between items-center w-full'>
-                    <h2 className='font-montserrat text-m-30 font-normal text-primary-4 w-2/6 justify-start'>News</h2>
+                    <h2 className='font-montserrat text-m-30 font-medium text-primary-4 w-2/6 justify-start'>News</h2>
                     <div className='swiper-pagination relative swiper-pagination-important'></div>
                 </div>
                 <Swiper

@@ -47,6 +47,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home isTopOfPage={isTopOfPage} />} />
             <Route path="/map" element={<Map />} />
+            <Route path="/infos" element={<Informations isTopOfPage={isTopOfPage} />} />
             <Route path="/myEvent" element={<MyEvent />} />
             <Route path="/" element={<Home isTopOfPage={isTopOfPage} />} />
           </Routes>

@@ -46,7 +46,7 @@ function Home({isTopOfPage}: Props) {
                 <TopPage/>
                 <Infos/>
                 <News/>
-                <h2 className='font-montserrat text-m-30 font-normal text-primary-4 w-5/6 mx-auto justify-start mb-4 mt-16'>Events</h2>
+                <h2 className='font-montserrat text-m-30 font-medium text-primary-4 w-5/6 mx-auto justify-start mb-4 mt-16'>Events</h2>
                 <MapComponent/>
             </main>
         </div>
