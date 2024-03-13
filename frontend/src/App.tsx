@@ -4,9 +4,8 @@ import { supabase } from "@/config/db.config.ts";
 import Login from "@/pages/Login";
 import Home from "@/pages/Home";
 import Map from "@/pages/Map/Map";
-import {SelectedPage} from "@/shared/SelectedPage.ts";
 import Informations from "@/pages/Informations";
-
+import MyEvent from "@/pages/My-event/MyEvent.tsx";
 
 type User = {
   name : string,
@@ -15,7 +14,6 @@ type User = {
 };
 
 function App() {
-  const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Home);
   const [users, setUsers] = useState<User[]>([]);
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
 
@@ -46,11 +44,11 @@ function App() {
       <div className='app bg-primary-2'>
         <Router>
           <Routes>
-            <Route path="/login" element={<Login selectedPage={selectedPage} setSelectedPage={setSelectedPage}/>}/>
-            <Route path="/home" element={<Home selectedPage={selectedPage} setSelectedPage={setSelectedPage} isTopOfPage={isTopOfPage}/>} />
-            <Route path="/map" element={<Map />}/>
-            <Route path="/infos" element={<Informations selectedPage={selectedPage} setSelectedPage={setSelectedPage} isTopOfPage={isTopOfPage} />}/>
-            <Route path="/" element={<Home selectedPage={selectedPage} setSelectedPage={setSelectedPage} isTopOfPage={isTopOfPage}/>}/>
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home isTopOfPage={isTopOfPage} />} />
+            <Route path="/map" element={<Map />} />
+            <Route path="/myEvent" element={<MyEvent />} />
+            <Route path="/" element={<Home isTopOfPage={isTopOfPage} />} />
           </Routes>
         </Router>
       </div>

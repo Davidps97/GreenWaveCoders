@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import {supabase} from "@/config/db.config.ts";
-import {useEffect, useState, useRef} from "react";
-import {SelectedPage} from "@/shared/SelectedPage.ts";
+import {useEffect, useState} from "react";
 import './Home.css';
 import 'swiper/swiper-bundle.css';
 import News from "@/pages/Home/News.tsx";
@@ -9,16 +8,12 @@ import Infos from "@/components/Infos";
 import {useNavigate} from "react-router-dom";
 import TopPage from "./TopPage.tsx";
 import OceanWaves from '@/assets/OceanWaves.mp4';
-import Map from "@/pages/Map/Map.tsx";
-import MapComponent from "@/components/MapComponent";
 
 type Props = {
-    selectedPage: SelectedPage;
     isTopOfPage: boolean;
-    setSelectedPage: (value: SelectedPage) => void;
 }
 
-function Home({selectedPage, setSelectedPage, isTopOfPage}: Props) {
+function Home({isTopOfPage}: Props) {
     //const navigate = useNavigate();
 
     // const signOutUser = () => {
@@ -44,7 +39,7 @@ function Home({selectedPage, setSelectedPage, isTopOfPage}: Props) {
                 <source src={OceanWaves} type="video/mp4"/>
             </video>
             <header>
-                <Navbar selectedPage={selectedPage} setSelectedPage={setSelectedPage} isTopOfPage={isTopOfPage}/>
+                <Navbar isTopOfPage={isTopOfPage}/>
             </header>
             <main className={`mt-44 h-full w-full gap-y-16`}>
                 <TopPage />

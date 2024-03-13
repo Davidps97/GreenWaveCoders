@@ -7,17 +7,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        "primary-1" : "#004567",
-        "primary-2" : "#47A6C2",
-        "primary-3" : "#111111",
-        "primary-4" : "#F5F5F5",
-        "secondary-1" : "#B4CADB",
-        "secondary-2" : "#0A6B92",
-        "black" : "#000000"
+        "primary-1": "#004567",
+        "primary-2": "#47A6C2",
+        "primary-3": "#111111",
+        "primary-4": "#F5F5F5",
+        "secondary-1": "#B4CADB",
+        "secondary-2": "#0A6B92",
+        "black": "#000000"
       },
       fontFamily: {
-        "montserrat" : ["Montserrat", "sans-serif"],
-        "karla" : ["Karla", "sans-serif"]
+        "montserrat": ["Montserrat", "sans-serif"],
+        "karla": ["Karla", "sans-serif"]
       },
       fontSize: {
         "m-64" : "64px",
