@@ -8,6 +8,7 @@ import Infos from "@/components/Infos";
 import {useNavigate} from "react-router-dom";
 import TopPage from "./TopPage.tsx";
 import OceanWaves from '@/assets/OceanWaves.mp4';
+import MapComponent from "@/pages/Map/MapComponent.tsx";
 
 type Props = {
     isTopOfPage: boolean;
@@ -41,10 +42,12 @@ function Home({isTopOfPage}: Props) {
             <header>
                 <Navbar isTopOfPage={isTopOfPage}/>
             </header>
-            <main className={`mt-44 h-full w-full gap-y-16`}>
-                <TopPage />
+            <main className={`mt-28 lg:mt-44 h-full w-full gap-y-16`}>
+                <TopPage/>
                 <Infos/>
                 <News/>
+                <h2 className='font-montserrat text-m-30 font-normal text-primary-4 w-5/6 mx-auto justify-start mb-4 mt-16'>Events</h2>
+                <MapComponent/>
             </main>
         </div>
     );
