@@ -1,5 +1,5 @@
 import { Auth } from "@supabase/auth-ui-react";
-import { ThemeSupa } from "@supabase/auth-ui-shared";
+
 import { useNavigate } from "react-router-dom";
 import {supabase} from "@/config/db.config.ts";
 
@@ -20,9 +20,14 @@ function Login() {
     <>
       <Auth
         supabaseClient={supabase}
-        appearance={{ theme: ThemeSupa }}
-        theme="dark"
         providers={["google"]}
+        appearance={{
+          style: {
+            input: {
+              border: 0 ,
+            }
+        }}}
+        
       />
     </>
   );

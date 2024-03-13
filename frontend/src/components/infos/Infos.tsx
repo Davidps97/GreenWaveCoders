@@ -1,8 +1,8 @@
 function Infos() {
     return (
-        <section className='w-full'>
+        <section className='w-full lg:mt-[720px]'>
             <div className='flex flex-col justify-center mx-auto w-5/6 gap-y-4'>
-                <h2 className='font-montserrat text-m-30 font-normal text-primary-4 w-2/6 justify-start'>Informations</h2>
+                <h2 className='font-montserrat text-m-30 font-medium text-primary-4 w-2/6 justify-start'>Informations</h2>
                 <div className='w-full lg:h-[400px] lg:py-[50px] bg-primary-4 rounded-2xl py-10'>
                     <div className='flex flex-col lg:flex-row lg:h-[300px] w-5/6 mx-auto gap-10 lg:gap-40'>
                         <div className='flex flex-col justify-center items-center lg:w-[300px] lg:h-[300px] gap-3'>
