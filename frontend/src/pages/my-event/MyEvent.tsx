@@ -1,13 +1,8 @@
-import { createClient } from "@supabase/supabase-js";
 import { SetStateAction, useEffect, useState } from "react";
 import "./MyEvent.css";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
-
-const projectUrl = import.meta.env.VITE_PROJECT_URL;
-const anonKey = import.meta.env.VITE_ANON_KEY;
-
-const supabase = createClient(projectUrl, anonKey);
+import {supabase} from "@/config/db.config.ts";
 
 type myEvent = {
   id: number;

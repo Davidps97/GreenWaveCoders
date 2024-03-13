@@ -1,12 +1,9 @@
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState, SetStateAction } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { useLocation } from "react-router-dom";
 import Footer from "@/components/footer/Footer";
-
-const projectUrl = import.meta.env.VITE_PROJECT_URL;
-const anonKey = import.meta.env.VITE_ANON_KEY;
+import { supabase } from "@/config/db.config.ts";
 
 type location = {
   id: number;
@@ -28,13 +25,11 @@ function Map() {
   }, []);
 
   async function getLocations() {
-    const supabase = createClient(projectUrl, anonKey);
     const { data } = await supabase.from("maps").select();
     setLocations(data as SetStateAction<location[]>);
   }
 
   async function getEvents(id: number | null) {
-    const supabase = createClient(projectUrl, anonKey);
     console.log(id);
     const { data } = await supabase.from("maps").select().eq("id", id);
     if (data) setEvent(data[0]);
