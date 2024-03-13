@@ -13,6 +13,14 @@ function Navbar({ isTopOfPage }: Props) {
     const flexBetween = 'flex items-center justify-between';
     const navbarWithScroll = !isTopOfPage ? 'shadow-xl' : '';
 
+    const handleClick = () => {
+        setIsMenuToggled(!isMenuToggled);
+        const root = document.getElementById('root') as HTMLElement;
+        if (root.classList) {
+            root.classList.toggle('overflow-hidden', isMenuToggled);
+        }
+    };
+
     return (
         <nav>
             <div className={`${flexBetween} ${navbarWithScroll} fixed top-0 z-30 w-full py-6`}>
@@ -39,7 +47,7 @@ function Navbar({ isTopOfPage }: Props) {
                         {!isMenuToggled && (
                             <button
                                 className='rounded-full p-2 lg:hidden absolute top-4 right-5'
-                                onClick={() => setIsMenuToggled(!isMenuToggled)}
+                                onClick={handleClick}
                             >
                                 <Bars3Icon className='size-6 text-primary-3'/>
                             </button>
@@ -50,7 +58,7 @@ function Navbar({ isTopOfPage }: Props) {
 
             {/* MOBILE MENU MODAL */}
             {isMenuToggled && (
-                <div className='flex flex-col w-full h-screen lg:hidden'>
+                <div className={`flex flex-col w-full h-screen lg:hidden z-1000`}>
                     <div className={`${flexBetween} fixed top-0 z-30 py-6 w-full`}>
                         <div className={`${flexBetween} w-5/6 mx-auto gap-32`}>
                             {/* CLOSE ICON */}

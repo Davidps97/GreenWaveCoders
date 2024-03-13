@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "@/pages/Login";
 import Home from "@/pages/Home";
 import {supabase} from '@/config/db.config.ts';
-import MyEvent from "@/pages/my-event/MyEvent.tsx";
+import MyEvent from "@/pages/My-event/MyEvent.tsx";
 import Map from '@/pages/Map/Map.tsx';
 
 type User = {
@@ -42,15 +42,17 @@ function App() {
   }, []);
 
     return (
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home isTopOfPage={isTopOfPage} />} />
-          <Route path="/map" element={<Map />} />
-          <Route path="/myEvent" element={<MyEvent />} />
-          <Route path="/" element={<Home isTopOfPage={isTopOfPage} />} />
-        </Routes>
-      </Router>
+        <div className='app bg-primary-2'>
+          <Router>
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route path="/home" element={<Home isTopOfPage={isTopOfPage} />} />
+              <Route path="/map" element={<Map />} />
+              <Route path="/myEvent" element={<MyEvent />} />
+              <Route path="/" element={<Home isTopOfPage={isTopOfPage} />} />
+            </Routes>
+          </Router>
+        </div>
   );
 }
 

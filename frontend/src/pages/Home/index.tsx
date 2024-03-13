@@ -31,11 +31,11 @@ function Home({ isTopOfPage }: Props) {
     // </>
 
     return (
-      <div className='home h-auto w-full flex flex-col'>
+      <div className='h-auto w-full flex flex-col bg-primary-2'>
           <header>
               <Navbar isTopOfPage={isTopOfPage}/>
           </header>
-          <main className='mt-20 h-full w-full'>
+          <main className='mt-36 h-full w-full'>
               <News />
           </main>
       </div>
