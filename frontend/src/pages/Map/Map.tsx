@@ -37,7 +37,7 @@ function Map() {
   }
 
   return (
-    <div className="map-main-container h-full">
+    <div className="map-main-container h-full" style={{ position: 'relative' }}>
       <MapContainer
         center={[35.380602, -5.0]}
         zoom={4}
@@ -60,7 +60,9 @@ function Map() {
           </div>
         ))}
       </MapContainer>
+      
     </div>
+
   );
 }
 

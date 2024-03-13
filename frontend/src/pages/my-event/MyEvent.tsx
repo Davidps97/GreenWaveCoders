@@ -1,4 +1,3 @@
-import { createClient } from "@supabase/supabase-js";
 import { SetStateAction, useEffect, useState } from "react";
 import "./MyEvent.css";
 import { useNavigate } from "react-router-dom";
