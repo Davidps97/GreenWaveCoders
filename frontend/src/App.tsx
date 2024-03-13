@@ -1,11 +1,11 @@
-import { useEffect, useState, SetStateAction } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { supabase } from "@/config/db.config.ts";
 import Login from "@/pages/Login";
 import Home from "@/pages/Home";
 import Map from "@/pages/Map/Map";
 import Informations from "@/pages/Informations";
-import MyEvent from "@/pages/My-event/MyEvent.tsx";
+import {SetStateAction, useEffect, useState} from "react";
+import MyEvent from "@/pages/My-event/MyEvent";
 
 type User = {
   name : string,

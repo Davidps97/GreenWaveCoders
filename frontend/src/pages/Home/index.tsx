@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 import TopPage from "./TopPage.tsx";
 import OceanWaves from '@/assets/OceanWaves.mp4';
 import MapComponent from "@/pages/Map/MapComponent.tsx";
+import Footer from "@/components/footer/Footer.tsx";
 
 type Props = {
     isTopOfPage: boolean;
