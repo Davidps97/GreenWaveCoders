@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import {supabase} from "@/config/db.config.ts";
 import {useEffect, useState} from "react";
 import {SelectedPage} from "@/shared/SelectedPage.ts";
+import Footer from "@/components/footer/Footer.tsx";
 
 function Home() {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Home);
