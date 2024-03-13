@@ -1,11 +1,11 @@
-import { useEffect, useState, SetStateAction } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { supabase } from "@/config/db.config.ts";
-import Login from "@/pages/Login";
-import Home from "@/pages/Home";
-import Map from "@/pages/Map/Map";
-import Informations from "@/pages/Informations";
-import MyEvent from "@/pages/My-event/MyEvent.tsx";
+import Login from "@/pages/login/Login.tsx";
+import Home from "@/pages/home/Home.tsx";
+import Map from "@/pages/map/Map";
+import Informations from "@/pages/informations/Informations.tsx";
+import MyEvent from "@/pages/my-event/MyEvent.tsx";
+import {SetStateAction, useEffect, useState} from "react";
 
 type User = {
   name : string,
@@ -45,10 +45,11 @@ function App() {
         <Router>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<Home isTopOfPage={isTopOfPage} />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/map" element={<Map />} />
             <Route path="/myEvent" element={<MyEvent />} />
-            <Route path="/" element={<Home isTopOfPage={isTopOfPage} />} />
+            <Route path="/infos" element={<Informations />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </Router>
       </div>

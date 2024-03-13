@@ -1,38 +1,26 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar/Navbar.tsx";
 import {supabase} from "@/config/db.config.ts";
 import {useEffect, useState} from "react";
 import './Home.css';
 import 'swiper/swiper-bundle.css';
-import News from "@/pages/Home/News.tsx";
-import Infos from "@/components/Infos";
+import News from "@/pages/home/News.tsx";
+import Infos from "@/components/infos/Infos.tsx";
 import {useNavigate} from "react-router-dom";
 import TopPage from "./TopPage.tsx";
 import OceanWaves from '@/assets/OceanWaves.mp4';
-import MapComponent from "@/pages/Map/MapComponent.tsx";
+import MapComponent from "@/pages/map/MapComponent.tsx";
 
-type Props = {
-    isTopOfPage: boolean;
-}
+function Home() {
+    const navigate = useNavigate();
 
-function Home({isTopOfPage}: Props) {
-    //const navigate = useNavigate();
-
-    // const signOutUser = () => {
-    // supabase.auth.signOut().then(({ error }) => {
-    //   if (error) {
-    //     console.log(error);
-    //   }
-    //   navigate("/login");
-    // });
-    // };
-
-    // <>
-    //     <h1>Index</h1>
-    //     <button onClick={() => signOutUser()}>LogOut</button>
-    //     <div className="Home-body">
-    //
-    //     </div>
-    // </>
+    const signOutUser = () => {
+        supabase.auth.signOut().then(({ error }) => {
+          if (error) {
+            console.log(error);
+          }
+          navigate("/login");
+        });
+    };
 
     return (
         <div className='h-auto w-[100vw] flex flex-col pb-10 lg:relative'>
@@ -40,7 +28,7 @@ function Home({isTopOfPage}: Props) {
                 <source src={OceanWaves} type="video/mp4"/>
             </video>
             <header>
-                <Navbar isTopOfPage={isTopOfPage}/>
+                <Navbar />
             </header>
             <main className={`mt-28 lg:mt-44 h-full w-full gap-y-16`}>
                 <TopPage/>

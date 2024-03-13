@@ -1,14 +1,10 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar/Navbar.tsx";
 
-type Props = {
-    isTopOfPage: boolean;
-}
-
-function Informations({isTopOfPage}: Props) {
+function Informations() {
     return (
         <div className='h-auto w-[100vw] flex flex-col pb-10 lg:relative'>
             <header>
-                <Navbar isTopOfPage={isTopOfPage}/>
+                <Navbar />
             </header>
             <main className={`mt-44 h-full w-full gap-y-16`}>
 

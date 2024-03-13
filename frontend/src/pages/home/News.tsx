@@ -1,6 +1,6 @@
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Autoplay, Pagination} from "swiper/modules";
-import Card from "@/components/Card";
+import Card from "@/components/card/Card.tsx";
 import {useEffect, useState} from "react";
 import {InfoArticleModel} from "@/shared/InfoArticleModel.ts";
 import getArticlesFromApi from "@/services/getArticles.service.ts";
