@@ -1,12 +1,7 @@
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState, SetStateAction, Key } from "react";
-import { createClient } from "@supabase/supabase-js";
-
-const projectUrl = import.meta.env.VITE_PROJECT_URL;
-const anonKey = import.meta.env.VITE_ANON_KEY;
-
-const supabase = createClient(projectUrl, anonKey);
+import { supabase } from "@/config/db.config.ts";
 
 type location = {
   id: number;
