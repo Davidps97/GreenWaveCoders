@@ -2,7 +2,7 @@ import Button from "@/components/Button";
 
 function TopPage() {
     return (
-        <section className='w-full lg:absolute lg:top-[50%] lg:left-[50%] lg:translate-y-[-250%] lg:-translate-x-2/4'>
+        <section className='w-full lg:absolute z-20'>
             <div className='flex flex-col w-full h-[520px]'>
                 <div className='flex flex-col justify-center items-center mx-auto w-5/6 gap-y-4 md:gap-y-12 pl-8 md:pl-0'>
                     <h1 className='flex justify-center w-full mx-auto text-white font-montserrat text-m-27 lg:text-m-64 font-bold md:pt-16'>

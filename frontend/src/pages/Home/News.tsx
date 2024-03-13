@@ -4,6 +4,7 @@ import Card from "@/components/Card";
 import {useEffect, useState} from "react";
 import {InfoArticleModel} from "@/shared/InfoArticleModel.ts";
 import getArticlesFromApi from "@/services/getArticles.service.ts";
+import './Home.css';
 
 function News() {
     const [newsArticles, setNewsArticles] = useState<InfoArticleModel[]>([]);

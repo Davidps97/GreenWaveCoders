@@ -3,6 +3,7 @@ import Button from "@/components/Button";
 import News from "@/pages/Home/News.tsx";
 import Advantages from '@/assets/advantages.jpg';
 import Beaches from '@/assets/beaches.jpeg';
+import ElementInfosPage from '@/assets/element-infos-page.svg';
 
 type Props = {
     isTopOfPage: boolean;
@@ -10,7 +11,7 @@ type Props = {
 
 function Informations({isTopOfPage}: Props) {
     return (
-        <div className='h-auto w-[100vw] flex flex-col pb-10'>
+        <div className='h-auto w-[100vw] flex flex-col'>
             <header>
                 <Navbar isTopOfPage={isTopOfPage}/>
             </header>
@@ -54,7 +55,7 @@ function Informations({isTopOfPage}: Props) {
                                     <h2 className='font-montserrat text-m-16 lg:text-m-30 font-medium text-primary-3 w-full justify-start mb-6'>
                                         Being a Member Means:
                                     </h2>
-                                    <p className='text-primary-3 text-k-16 md:text-k-20 md:w-full font-karla font-normal mb-4 pl-8'>
+                                    <div className='text-primary-3 text-k-16 md:text-k-20 md:w-full font-karla font-normal mb-4 pl-8'>
                                         <ul className='list-disc'>
                                             <li>Collaborating with a local team within an international association</li>
                                             <li>Participating in impactful events and hands-on initiatives</li>
@@ -66,7 +67,7 @@ function Informations({isTopOfPage}: Props) {
                                             <li>Staying informed about regional and international news</li>
                                             <li>Contributing innovative ideas and initiating projects</li>
                                         </ul>
-                                    </p>
+                                    </div>
                                 </div>
                                 <div className='lg:w-3/6 lg:order-2'>
                                     <img src={Advantages} alt="advantages-user" className='rounded-lg'/>
@@ -80,7 +81,7 @@ function Informations({isTopOfPage}: Props) {
                                     <h2 className='font-montserrat text-m-16 lg:text-m-30 font-medium text-primary-3 w-full justify-start mb-6'>
                                         This opportunity is perfect for you if:
                                     </h2>
-                                    <p className='text-primary-3 text-k-16 md:text-k-20 md:w-full font-karla font-normal mb-4 pl-8'>
+                                    <div className='text-primary-3 text-k-16 md:text-k-20 md:w-full font-karla font-normal mb-4 pl-8'>
                                         <ul className='list-disc'>
                                             <li>You're ready to take action and reject defeatism</li>
                                             <li>You believe in collective action, innovation, and the power of
@@ -93,7 +94,7 @@ function Informations({isTopOfPage}: Props) {
                                                 levels
                                             </li>
                                         </ul>
-                                    </p>
+                                    </div>
                                 </div>
                                 <div className='lg:w-4/6 lg:order-1'>
                                     <img src={Beaches} alt="beaches" className='rounded-lg'/>
@@ -119,7 +120,12 @@ function Informations({isTopOfPage}: Props) {
                         </div>
                     </div>
                 </section>
-                <News/>
+                <div className='xs:relative mt-6 lg:h-[500px]'>
+                    <img src={ElementInfosPage} alt="info-page" className='lg:hidden mt-3'/>
+                    <div className='xs:w-[100%] xs:absolute xs:top-[66px]'>
+                        <News />
+                    </div>
+                </div>
             </main>
         </div>
     );

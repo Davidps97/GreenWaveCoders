@@ -6,6 +6,7 @@ import Map from "@/pages/Map/Map";
 import Informations from "@/pages/Informations";
 import {SetStateAction, useEffect, useState} from "react";
 import MyEvent from "@/pages/My-event/MyEvent";
+import Test from "@/pages/Test.tsx";
 
 type User = {
   name : string,
@@ -48,7 +49,8 @@ function App() {
             <Route path="/home" element={<Home isTopOfPage={isTopOfPage} />} />
             <Route path="/map" element={<Map />} />
             <Route path="/infos" element={<Informations isTopOfPage={isTopOfPage} />} />
-            <Route path="/myEvent" element={<MyEvent />} />
+            <Route path="/my-event" element={<MyEvent />} />
+            <Route path="/test" element={<Test />} />
             <Route path="/" element={<Home isTopOfPage={isTopOfPage} />} />
           </Routes>
         </Router>
