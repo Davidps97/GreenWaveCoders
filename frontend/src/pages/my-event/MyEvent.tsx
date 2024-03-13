@@ -1,6 +1,7 @@
 import { SetStateAction, useEffect, useState } from "react";
 import "./MyEvent.css";
 import { useNavigate } from "react-router-dom";
+import { createClient } from "@supabase/supabase-js";
 
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
 const anonKey = import.meta.env.VITE_ANON_KEY;
