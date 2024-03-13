@@ -34,8 +34,9 @@ function MyEvent() {
   }
   return (
     <>
-         <h1>EVENTOS KIRIAN</h1>
+
       <EventCard title={"Titulo"} description={"Opa"} imageSrc={"imagen.jpeg"}/>
+      
     
       <div className="myEvent-body bg-gradient-to-b from-[#47A6C2] to-[#004567]">
         <div className="myEvent-title">

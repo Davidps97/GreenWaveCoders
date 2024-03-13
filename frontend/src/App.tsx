@@ -3,6 +3,8 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Map from "./pages/map/Map";
 import MyEvent from "./pages/my-event/MyEvent";
+import Event from "./pages/events-page/Event";
+
 
 function App() {
     return (
@@ -13,6 +15,7 @@ function App() {
         <Route path="/map" element={<Map/>}/>
         <Route path="/myEvent" element={<MyEvent/>}/>
         <Route path="/" element={<Home/>}/>
+        <Route path="/events" element={<Event/>}/>
       </Routes>
     </Router>
   );
