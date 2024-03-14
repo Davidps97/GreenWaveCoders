@@ -12,7 +12,7 @@ function App() {
 
   return (
       <Router>
-        <div className='app bg-primary-2'>
+        <div className='app'>
           <Routes>
             <Route path="/sign-in" element={<SignIn/>}/>
             <Route path="/sign-up" element={<SignUp/>}/>

@@ -19,7 +19,7 @@ function Informations() {
     }
 
     return (
-        <div className='h-auto w-[100vw] flex flex-col'>
+        <div className='h-auto w-[100vw] flex flex-col bg-[#47A6C2]'>
             <header>
                 {/*<Navbar />*/}
             </header>

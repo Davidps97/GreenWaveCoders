@@ -30,7 +30,7 @@ function Home() {
     };
 
     return (
-        <div className='h-auto w-[100vw] flex flex-col pb-10'>
+        <div className='h-auto w-[100vw] flex flex-col pb-10 bg-primary-2'>
             <header>
                 {/*<Navbar />*/}
             </header>
