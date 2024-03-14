@@ -1,7 +1,13 @@
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useEffect, useState, SetStateAction, Key } from "react";
-import { supabase } from "@/config/db.config.ts";
+import { useEffect, useState, SetStateAction } from "react";
+import { createClient } from "@supabase/supabase-js";
+import { useLocation } from "react-router-dom";
+
+const projectUrl = import.meta.env.VITE_PROJECT_URL;
+const anonKey = import.meta.env.VITE_ANON_KEY;
+
+const supabase = createClient(projectUrl, anonKey);
 
 type location = {
   id: number;
@@ -9,19 +15,17 @@ type location = {
   longitude: number;
 };
 
-type event = {
-  id: Key;
-  title: string;
-  description: string;
-  map_id: number;
-};
-
 function Map() {
   const [locations, setLocations] = useState<location[]>([]);
-  const [events, setEvents] = useState<event[]>([]);
+  const [event, setEvent] = useState<location>();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const map_id = searchParams.get("map_id");
 
   useEffect(() => {
     getLocations();
+
+    if (map_id) getEvents(Number(map_id));
   }, []);
 
   async function getLocations() {
@@ -31,13 +35,46 @@ function Map() {
 
   async function getEvents(id: number | null) {
     console.log(id);
-    const { data } = await supabase.from("events").select().eq("map_id", id);
-    setEvents(data as SetStateAction<event[]>);
+    const { data } = await supabase.from("maps").select().eq("id", id);
+    if (data) setEvent(data[0]);
+
     console.log(data);
   }
 
+  console.log(map_id);
+
+  if (map_id) {
+    return (
+      <div className="map-main-container h-full">
+        {event && (
+          <MapContainer
+            center={[event.latitude, event.longitude]}
+            zoom={20}
+            style={{ height: "100vh", width: "100%" }}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {locations.map((location) => (
+              <div key={location.id}>
+                <Marker
+                  key={location.id}
+                  position={[location.latitude, location.longitude]}
+                  eventHandlers={{
+                    click: () => getEvents(location.id),
+                  }}
+                ></Marker>
+              </div>
+            ))}
+          </MapContainer>
+        )}
+      </div>
+    );
+  }
+
   return (
-    <div className="map-main-container h-full" style={{ position: 'relative' }}>
+    <div className="map-main-container h-full">
       <MapContainer
         center={[35.380602, -5.0]}
         zoom={4}
@@ -48,21 +85,18 @@ function Map() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {locations.map((location) => (
-          <div >
+          <div key={location.id}>
             <Marker
               key={location.id}
               position={[location.latitude, location.longitude]}
               eventHandlers={{
-                click: () => getEvents(location.id)
+                click: () => getEvents(location.id),
               }}
-            >
-            </Marker>
+            ></Marker>
           </div>
         ))}
       </MapContainer>
-      
     </div>
-
   );
 }
 
