@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import Map from "./pages/map/Map";
-import MyEvent from "./pages/my-event/MyEvent";
+import SignIn from "@/pages/SignIn";
+import MyEvent from "@/pages/my-event/MyEvent.tsx";
+import Map from '@/pages/Map/Map.tsx';
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
+import SignUp from "./pages/SignUp";
 import Event from "./pages/events-page/Event";
 
 
