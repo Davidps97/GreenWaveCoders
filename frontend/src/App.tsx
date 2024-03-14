@@ -6,7 +6,6 @@ import SignInForm from "@/pages/SignIn";
 import Home from "./pages/home/Home";
 import Information from "./pages/information/Information";
 import SignUpForm from "./pages/SignUp";
-import SignUpForm from "./pages/SignUp";
 
 
 function App() {

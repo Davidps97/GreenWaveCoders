@@ -34,12 +34,11 @@ function MyEvent() {
 
     console.log(data);
 
-    console.log(user?.id);
   }
   return (
     <>
 
-      <EventCard title={"Titulo"} description={"Opa"} imageSrc={"imagen.jpeg"}/>
+
       
     
       <div className="myEvent-body bg-gradient-to-b from-[#47A6C2] to-[#004567]">

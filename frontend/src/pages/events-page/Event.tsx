@@ -4,6 +4,7 @@ import AllEventCards from "../../components/allEventCards/AllEvents";
 import JoinButton from "@/components/joinEvent/JoinEventButton";
 import { useState,SetStateAction, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
+import { useLocation } from "react-router";
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
 const anonKey = import.meta.env.VITE_ANON_KEY;
 
@@ -15,16 +16,18 @@ type event = {
     map_id: number;
   };
   function Event() {
+    const location = useLocation();
+    const locationId = location.state?.locationId;
     const [event, setEvent] = useState<event[]>([]);
 
     async function getEvent(id: number) {
         const supabase = createClient(projectUrl, anonKey);
-        const { data } = await supabase.from("events").select().eq("id", id);
+        const { data } = await supabase.from("events").select().eq("map_id", id);
         setEvent(data as SetStateAction<event[]>);
     }
 
     useEffect(() => {
-        getEvent(7);
+        getEvent(locationId);
     }, []);
 
     return (
