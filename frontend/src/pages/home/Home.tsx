@@ -5,9 +5,9 @@ import 'swiper/swiper-bundle.css';
 import News from "@/pages/home/News.tsx";
 import Infos from "@/components/infos/Infos.tsx";
 import {useNavigate} from "react-router-dom";
-import TopPage from "./TopPage.tsx";
+import TopPage from "@/pages/home/TopPage.tsx";
 import MapComponent from "@/pages/map/MapComponent.tsx";
-import './Home.css';
+import '@/pages/home/Home.css';
 
 function Home() {
     const navigate = useNavigate();
