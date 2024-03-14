@@ -2,6 +2,7 @@ import { SetStateAction, useEffect, useState } from "react";
 import "./MyEvent.css";
 import { useNavigate } from "react-router-dom";
 import { createClient } from "@supabase/supabase-js";
+import EventCard from "@/components/event-card/Event-card";
 
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
 const anonKey = import.meta.env.VITE_ANON_KEY;
@@ -37,6 +38,10 @@ function MyEvent() {
   }
   return (
     <>
+
+      <EventCard title={"Titulo"} description={"Opa"} imageSrc={"imagen.jpeg"}/>
+      
+    
       <div className="myEvent-body bg-gradient-to-b from-[#47A6C2] to-[#004567]">
         <div className="myEvent-title">
           <h1>My Events</h1>
@@ -70,6 +75,8 @@ function MyEvent() {
           ))}
         </div>
       </div>
+
+ 
     </>
   );
 }
