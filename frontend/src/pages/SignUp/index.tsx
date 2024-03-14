@@ -4,6 +4,8 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { EnvelopeIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/outline';
 import Logo from "../../assets/Logo-V2.svg";
+import Waves from "../../assets/Waves-1.svg"
+import SignUpWave from "../../utils/SignUpWave";
 
 type SignUpData = {
   name: string;
@@ -14,6 +16,7 @@ type SignUpData = {
 const SignUpForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [signUpError, setSignUpError] = useState<string | null>(null);
+  const [animationComplete, setAnimationCompleted] = useState(false)
   const navigate = useNavigate();
 
   const handleSignUp: Promise<SubmitHandler<FieldValues>> = async ({ name, email, password }: SignUpData) => {
@@ -41,11 +44,17 @@ const SignUpForm = () => {
     }
   };
 
-  return (
-    <form onSubmit={handleSubmit(handleSignUp)} className="flex flex-col items-center justify-center h-screen bg-primary-1">
-       
-       <img src={Logo} alt="Logo" className="size-[200px] sm:size-[300px] mb-10" />
 
+
+  return (
+    <div style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
+        {!animationComplete &&
+        <SignUpWave onAnimationComplete = {()=>setAnimationCompleted(true)}>
+          <img src={Waves} alt="Waves" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        </SignUpWave>
+      }
+    <form onSubmit={handleSubmit(handleSignUp)} className="flex flex-col items-center justify-center h-screen bg-primary-1">
+    <img src={Logo} alt="Logo" className="size-[200px] sm:size-[300px] mb-10" />
       <div className="mb-4 relative">
         <UserIcon className="absolute left-2 top-2 w-6 h-6 text-primary-3 drop-shadow-sm" />
         <label htmlFor="name" className="sr-only">Name:</label>
@@ -56,7 +65,7 @@ const SignUpForm = () => {
           {...register("name", { required: true })}
           className="w-[346px] h-11 bg-primary-4 shadow-md rounded-lg font-montserrat text-m-16 p-2 pl-10 border-b-2 border-primary-3 outline-none"
         />
-        {errors.name && <span className="font-karla text-sm text-primary-4 mt-1 block">This field is required</span>}
+        {errors.name && <span className="font-karla text-sm text-primary-4 mt-1 block absolute">This field is required</span>}
       </div>
 
       <div className="mb-10"></div>
@@ -71,7 +80,7 @@ const SignUpForm = () => {
           {...register("email", { required: true })}
           className="w-[346px] h-11 bg-primary-4 shadow-md rounded-lg font-montserrat text-m-16 p-2 pl-10 border-b-2 border-primary-3 outline-none"
         />
-        {errors.email && <span className="font-karla text-sm text-primary-4 mt-1 block">This field is required</span>}
+        {errors.email && <span className="font-karla text-sm text-primary-4 mt-1 block absolute">This field is required</span>}
       </div>
 
       <div className="mb-10"></div>
@@ -86,7 +95,7 @@ const SignUpForm = () => {
           {...register("password", { required: true })}
           className="w-[346px] h-11 bg-primary-4 shadow-md rounded-lg font-montserrat text-m-16 p-2 pl-10 border-b-2 border-primary-3 outline-none"
         />
-        {errors.password && <span className="font-karla text-sm text-primary-4 mt-1 block">This field is required</span>}
+        {errors.password && <span className="font-karla text-sm text-primary-4 mt-1 block absolute">This field is required</span>}
       </div>
 
       <div className="mb-32"></div>
@@ -108,6 +117,7 @@ const SignUpForm = () => {
 
       {signUpError && <div>{signUpError}</div>}
     </form>
+    </div>
   );
 };
 
