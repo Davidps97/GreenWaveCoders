@@ -1,13 +1,12 @@
 
 import EventCard from "@/components/event-card/Event-card";
-import AllEventCards from "../../components/allEventCards/AllEvents";
+import AllEventCards from "../../components/AllEventCards/AllEvents";
 import JoinButton from "@/components/joinEvent/JoinEventButton";
 import { useState,SetStateAction, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
 const anonKey = import.meta.env.VITE_ANON_KEY;
 
-const supabase = createClient(projectUrl, anonKey);
 
 type event = {
     id: number;
@@ -19,6 +18,7 @@ type event = {
     const [event, setEvent] = useState<event[]>([]);
 
     async function getEvent(id: number) {
+        const supabase = createClient(projectUrl, anonKey);
         const { data } = await supabase.from("events").select().eq("id", id);
         setEvent(data as SetStateAction<event[]>);
     }

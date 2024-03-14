@@ -6,7 +6,7 @@ import "../../pages/my-event/MyEvent.css";
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
 const anonKey = import.meta.env.VITE_ANON_KEY;
 
-const supabase = createClient(projectUrl, anonKey);
+
 
 type Event = {
   id: number;
@@ -25,6 +25,7 @@ const AllEventCards = () => {
   }, []);
 
   async function getAllEvents() {
+    const supabase = createClient(projectUrl, anonKey);
     const { data } = await supabase.from("events").select();
     setEvents(data as Event[]);
   }
