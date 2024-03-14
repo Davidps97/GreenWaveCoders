@@ -9,7 +9,7 @@ const anonKey = import.meta.env.VITE_ANON_KEY;
 const supabase = createClient(projectUrl, anonKey);
 function Navbar() {
   const navigate = useNavigate();
-  const [open, setOpen] = useState<boolean>(true);
+  const [open, setOpen] = useState<boolean>(false);
 
   const [openModal, setOpenModal] = useState(false);
   const handleOpen = () => setOpenModal(true);
