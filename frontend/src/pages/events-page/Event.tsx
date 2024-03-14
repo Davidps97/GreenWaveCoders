@@ -1,6 +1,6 @@
 
 import EventCard from "@/components/event-card/Event-card";
-import AllEventCards from "../../components/AllEventCards/AllEvents";
+import AllEventCards from "../../components/allEventCards/AllEvents";
 import JoinButton from "@/components/joinEvent/JoinEventButton";
 import { useState,SetStateAction, useEffect } from "react";
 import { createClient } from "@supabase/supabase-js";

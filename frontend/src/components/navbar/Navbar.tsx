@@ -1,11 +1,29 @@
 import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import AddImage from '../addImage/AddImage';
+import { createClient } from "@supabase/supabase-js";
+const projectUrl = import.meta.env.VITE_PROJECT_URL;
+const anonKey = import.meta.env.VITE_ANON_KEY;
 
+const supabase = createClient(projectUrl, anonKey);
 function Navbar() {
   const navigate = useNavigate();
   const [open, setOpen] = useState<boolean>(true);
 
+  const [openModal, setOpenModal] = useState(false);
+  const handleOpen = () => setOpenModal(true);
+  const handleClose = () => setOpenModal(false);
+  async function getUser() {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    console.log(user?.id);
+  }
+
+  useEffect(() => {
+    getUser();
+  }, []);
   return (
     <>
       {open ?
@@ -17,7 +35,15 @@ function Navbar() {
               </div>
             </div>
           </div>
+          <div className='inline-flex w-52' onClick={handleOpen}>
+              <div className="rounded-full w-12 h-12 bg-white m-auto mb-2 ml-3 " />
+              <div>
+                <p className="text-start text-black text-sm">Isabella</p>
+                <p className="text-center text-gray-600 text-sm">isabella@gmail.com</p>
+              </div>
+            </div>
           <div className="navbar-mid">
+            
             <div className='navbar-li cursor-pointer' onClick={() => navigate("/map")}>
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#111" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 19v-8.5a.999.999 0 0 0-.4-.8l-7-5.25a1 1 0 0 0-1.2 0l-7 5.25a1 1 0 0 0-.4.8V19a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1Z" /></svg>
@@ -48,6 +74,7 @@ function Navbar() {
           <div className='navbar-svg-bottom absolute bottom-5 -z-11'>
             <svg xmlns="http://www.w3.org/2000/svg" width="430" height="204" fill="none"><path fill="#004567" d="M430 203.8V83.84l-92.6-.29a209.17 209.17 0 0 1-53.72-7.19L0 0v120.06" /></svg>
           </div>
+          <AddImage openModal={openModal} handleClose={handleClose} />
         </div>
         :
         <div className="navbar-top">
@@ -57,9 +84,11 @@ function Navbar() {
             </div>
           </div>
         </div>
+        
       }
     </>
   );
 }
+
 
 export default Navbar;
