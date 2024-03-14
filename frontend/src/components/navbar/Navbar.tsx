@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 function Navbar() {
   const navigate = useNavigate();
-  const [open, setOpen] = useState<boolean>(true);
+  const [open, setOpen] = useState<boolean>(false);
 
   return (
     <>

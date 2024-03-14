@@ -21,7 +21,7 @@ function News() {
     }, []);
 
     return (
-        <section className='w-full mt-10'>
+        <section className='max-w-[90%] mt-10'>
             <div className='flex flex-col justify-center mx-auto w-5/6'>
                 <div className='flex justify-between items-center w-full'>
                     <h2 className='font-montserrat text-m-30 font-medium text-primary-4 w-2/6 justify-start'>News</h2>
@@ -51,7 +51,7 @@ function News() {
                         }
                     }}
                     modules={[Autoplay, Pagination]}
-                    className="w-full"
+                    className="max-w-full"
                 >
                     {firstSixArticles.map((article) => (
                         <SwiperSlide key={article.title}>

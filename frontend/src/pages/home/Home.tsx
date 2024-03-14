@@ -3,13 +3,14 @@ import Map from "../Map/Map";
 import TopPage from "./TopPage";
 import Infos from "@/components/info/Infos";
 import News from "./News";
+import Navbar from "@/components/navbar/Navbar";
 
 function Home() {
   return (
     <>
       <div className='h-auto w-[100vw] flex flex-col pb-10 bg-primary-2'>
-            <header>
-                {/*<Navbar />*/}
+            <header className="fixed top-0 right-0 left-0 z-[9999]">
+                <Navbar/>
             </header>
             <main className={`mt-28 h-full w-full gap-y-16`}>
                 <TopPage/>
