@@ -1,22 +1,31 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SignIn from "./pages/SignIn";
-import Home from "./pages/Home";
-import Map from "./pages/map/Map";
-import MyEvent from "./pages/my-event/MyEvent";
-import SignUp from "./pages/SignUp";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Home from "@/pages/home/Home.tsx";
+import Map from "@/pages/map/Map.tsx";
+import Informations from "@/pages/informations/Informations.tsx";
+import MyEvent from "@/pages/my-event/MyEvent.tsx";
+import SignIn from "@/pages/sign-in/SignIn.tsx";
+import SignUp from "@/pages/sign-up/SignUp.tsx";
+import Error from "@/pages/error/Error.tsx";
+
 
 function App() {
-    return (
-    <Router>
-      <Routes>
-        <Route path="/sign-in" element={<SignIn/>}/>
-        <Route path="/sign-up" element={<SignUp/>}/>
-        <Route path="/home" element={<Home/>}/>
-        <Route path="/map" element={<Map/>}/>
-        <Route path="/myEvent" element={<MyEvent/>}/>
-        <Route path="/" element={<Home/>}/>
-      </Routes>
-    </Router>
+
+
+  return (
+      <Router>
+        <div className='app'>
+          <Routes>
+            <Route path="/sign-in" element={<SignIn/>}/>
+            <Route path="/sign-up" element={<SignUp/>}/>
+            <Route path="/home" element={<Home />}/>
+            <Route path="/map" element={<Map/>}/>
+            <Route path="/infos" element={<Informations />}/>
+            <Route path="/my-event" element={<MyEvent/>}/>
+            <Route path="/" element={<Home />}/>
+            <Route path="*" element={<Error />}/>
+          </Routes>
+        </div>
+      </Router>
   );
 }
 

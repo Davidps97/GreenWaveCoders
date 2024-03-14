@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { supabase } from "../../config/db.config";
+import { supabase } from "@/config/db.config";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { EnvelopeIcon, LockClosedIcon } from '@heroicons/react/24/outline';
-import Logo from "../../assets/Logo-V2.svg";
+import Logo from "@/assets/Logo-V2.svg";
 
 type SignInData = {
   email: string;
