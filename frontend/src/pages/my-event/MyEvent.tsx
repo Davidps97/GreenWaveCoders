@@ -1,6 +1,7 @@
-import { createClient } from "@supabase/supabase-js";
 import { SetStateAction, useEffect, useState } from "react";
 import "./MyEvent.css";
+import { useNavigate } from "react-router-dom";
+import { createClient } from "@supabase/supabase-js";
 
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
 const anonKey = import.meta.env.VITE_ANON_KEY;
@@ -11,10 +12,13 @@ type myEvent = {
   id: number;
   title: string;
   description: string;
+  imgUrl?: string;
+  map_id: number;
 };
 
 function MyEvent() {
   const [myEvents, setMyEvents] = useState<myEvent[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getMyEvents();
@@ -38,15 +42,32 @@ function MyEvent() {
           <h1>My Events</h1>
         </div>
         <div className="myEvent-list">
-            <div className="myEvent-self-body">
-                <div className="myEvent-title-button">
-                    <div>Clean El Confital Beach</div>
-                    <button className="drop-shadow-[0_20px_13px_rgba(0,0,0,0.03)]">See Location</button>
-                </div>
-                <div className="myEvent-img">
-                    <div>Joined</div>
-                </div>
+          {myEvents.map((event, index) => (
+            <div
+              key={event.id}
+              className={`${
+                index % 2 === 0
+                  ? "myEvent-self-body"
+                  : "myEvent-self-body-reverse"
+              }`}
+            >
+              <div className="myEvent-title-button">
+                <div>{event.title}</div>
+                <button
+                  onClick={() => navigate(`/map?&map_id=${event.map_id}`)}
+                >
+                  See Location
+                </button>
+              </div>
+              <div className="myEvent-img">
+                <img
+                  className="myEvent-img size-full object-cover"
+                  src={event.imgUrl}
+                ></img>
+                <div>Joined</div>
+              </div>
             </div>
+          ))}
         </div>
       </div>
     </>
