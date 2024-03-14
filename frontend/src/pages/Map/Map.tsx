@@ -1,12 +1,7 @@
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState, SetStateAction, Key } from "react";
-import { createClient } from "@supabase/supabase-js";
-
-const projectUrl = import.meta.env.VITE_PROJECT_URL;
-const anonKey = import.meta.env.VITE_ANON_KEY;
-
-const supabase = createClient(projectUrl, anonKey);
+import { supabase } from "@/config/db.config.ts";
 
 type location = {
   id: number;
@@ -42,7 +37,7 @@ function Map() {
   }
 
   return (
-    <div className="map-main-container h-full">
+    <div className="map-main-container h-full" style={{ position: 'relative' }}>
       <MapContainer
         center={[35.380602, -5.0]}
         zoom={4}
@@ -65,7 +60,9 @@ function Map() {
           </div>
         ))}
       </MapContainer>
+      
     </div>
+
   );
 }
 
