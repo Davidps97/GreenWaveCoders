@@ -50,7 +50,7 @@ function Informations() {
                                 </div>
                                 <div className='flex flex-col lg:flex-row gap-3'>
                                     <div>
-                                        <Button bgColor='bg-primary-4' fontColor='text-primary-1' children='SIGN IN' handleSign={handleSignIn}/>
+                                        <Button bgColor='bg-primary-4' fontColor='text-primary-1' children='SIGN IN' handleClick={handleSignIn}/>
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@ function Informations() {
                                 </div>
                                 <div className='flex flex-col lg:flex-row gap-3'>
                                     <div>
-                                        <Button bgColor='bg-primary-4' fontColor='text-primary-1' children='SIGN UP' handleSign={handleSignUp}/>
+                                        <Button bgColor='bg-primary-4' fontColor='text-primary-1' children='SIGN UP' handleClick={handleSignUp}/>
                                     </div>
                                 </div>
                             </div>

@@ -5,6 +5,7 @@ import Informations from "@/pages/informations/Informations.tsx";
 import MyEvent from "@/pages/my-event/MyEvent.tsx";
 import SignIn from "@/pages/sign-in/SignIn.tsx";
 import SignUp from "@/pages/sign-up/SignUp.tsx";
+import Error from "@/pages/error/Error.tsx";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/infos" element={<Informations />}/>
             <Route path="/my-event" element={<MyEvent/>}/>
             <Route path="/" element={<Home />}/>
+            <Route path="*" element={<Error />}/>
           </Routes>
         </div>
       </Router>
