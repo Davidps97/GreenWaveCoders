@@ -3,6 +3,7 @@ import "leaflet/dist/leaflet.css";
 import { useEffect, useState, SetStateAction } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useLocation, useNavigate } from "react-router-dom";
+import Navbar from "@/components/navbar/Navbar";
 
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
 const anonKey = import.meta.env.VITE_ANON_KEY;
@@ -35,12 +36,12 @@ function Map() {
   }
 
   async function getEvents(id: number | null) {
-    
+
     console.log(id);
     const { data } = await supabase.from("maps").select().eq("id", id);
     if (data) setEvent(data[0]);
     console.log(id)
-    navigate("/events", { state: { locationId:id } });
+    navigate("/events", { state: { locationId: id } });
     console.log(data);
   }
 
@@ -49,6 +50,9 @@ function Map() {
   if (map_id) {
     return (
       <div className="map-main-container h-full">
+        <header className="fixed top-0 right-0 left-0 z-[9999]">
+          <Navbar />
+        </header>
         {event && (
           <MapContainer
             center={[event.latitude, event.longitude]}
@@ -78,6 +82,9 @@ function Map() {
 
   return (
     <div className="map-main-container h-full">
+      <header className="fixed top-0 right-0 left-0 z-[9999]">
+        <Navbar />
+      </header>
       <MapContainer
         center={[35.380602, -5.0]}
         zoom={4}

@@ -3,6 +3,7 @@ import "./MyEvent.css";
 import { useNavigate } from "react-router-dom";
 import { createClient } from "@supabase/supabase-js";
 import EventCard from "@/components/event-card/Event-card";
+import Navbar from "@/components/navbar/Navbar";
 
 const projectUrl = import.meta.env.VITE_PROJECT_URL;
 const anonKey = import.meta.env.VITE_ANON_KEY;
@@ -37,11 +38,10 @@ function MyEvent() {
   }
   return (
     <>
-
-
-      
-    
       <div className="myEvent-body bg-gradient-to-b from-[#47A6C2] to-[#004567]">
+        <header className="fixed top-0 right-0 left-0 z-[9999]">
+          <Navbar />
+        </header>
         <div className="myEvent-title">
           <h1>My Events</h1>
         </div>
@@ -49,11 +49,10 @@ function MyEvent() {
           {myEvents.map((event, index) => (
             <div
               key={event.id}
-              className={`${
-                index % 2 === 0
+              className={`${index % 2 === 0
                   ? "myEvent-self-body"
                   : "myEvent-self-body-reverse"
-              }`}
+                }`}
             >
               <div className="myEvent-title-button">
                 <div>{event.title}</div>
@@ -75,7 +74,7 @@ function MyEvent() {
         </div>
       </div>
 
- 
+
     </>
   );
 }

@@ -11,13 +11,13 @@ export default function Information() {
   function handleSignUp(): void {
     throw new Error("Function not implemented.");
   }
-  
+
   return (
     <div className='h-auto w-[100vw] flex flex-col bg-[#47A6C2]'>
-       <header>
+      <header className="fixed top-0 right-0 left-0 z-[9999]">
         <Navbar />
-    </header> 
-    
+      </header>
+
       <main className={`mt-28 h-auto w-full`}>
         <section className='w-full h-auto'>
           <div className='flex flex-col w-full h-auto gap-y-16'>

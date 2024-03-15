@@ -13,17 +13,17 @@ function Navbar() {
   const navigate = useNavigate();
   const [open, setOpen] = useState<boolean>(false);
 
-  const [openModal, setOpenModal] =  useState<boolean>(false); 
-  
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
   const handleClose = () => setOpenModal(false);
   const handleOpenModal = () => {
     setOpenModal(true);
-    
-  } 
+
+  }
   const [selectedUser, setSelectedUser] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [image, setImage] = useState<string>("");
-  
+
   async function getUser() {
     const supabase = createClient(projectUrl, anonKey);
     const {
@@ -36,23 +36,29 @@ function Navbar() {
     }
     setSelectedUser(user!.id)
   }
-async function SetImage(userId: string | null) {
+  async function SetImage(userId: string | null) {
 
-console.log(userId)
-  if (userId === null) {
-    
-    setImage("user");
-  } else {
-    setImage(userId);
+    console.log(userId)
+    if (userId === null) {
 
+      setImage("user");
+    } else {
+      setImage(userId);
+
+    }
   }
-}
-useEffect(() => {
-  if (open) {
-    getUser();
-    SetImage(selectedUser);
+  useEffect(() => {
+    if (open) {
+      getUser();
+      SetImage(selectedUser);
+    }
+  }, [open, selectedUser]);
+
+  async function logOut() {
+    const supabase = createClient(projectUrl, anonKey);
+    await supabase.auth.signOut();
   }
-}, [open, selectedUser]);
+
 
   return (
     <>
@@ -65,17 +71,19 @@ useEffect(() => {
               </div>
             </div>
           </div>
-          
-          <div className='inline-flex w-52' onClick={handleOpenModal}>
+
+          {selectedUser &&
+            <div className='inline-flex w-52' onClick={handleOpenModal}>
               <img src={`https://sfcidwwlfdzimcymieuz.supabase.co/storage/v1/object/public/user-image/${image}`} className="rounded-full w-12 h-12 m-auto mb-2 ml-3 " />
               <div>
                 <p className="text-start text-black text-sm ml-2">{email.split('@')[0]}</p>
                 <p className="text-center text-gray-600 text-sm ml-2">{email}</p>
               </div>
             </div>
+          }
 
           <div className="navbar-mid">
-            
+
             <div className='navbar-li cursor-pointer' onClick={() => navigate("/home")}>
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#111" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 19v-8.5a.999.999 0 0 0-.4-.8l-7-5.25a1 1 0 0 0-1.2 0l-7 5.25a1 1 0 0 0-.4.8V19a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1Z" /></svg>
@@ -96,12 +104,22 @@ useEffect(() => {
             </div>
           </div>
           <div className="navbar-bottom">
-            <div className='navbar-signIn cursor-pointer' onClick={() => navigate("/signin")}>
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#F5F5F5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+
+            {!selectedUser ?
+              <div className='navbar-signIn cursor-pointer' onClick={() => { navigate("/signin") }}>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path stroke="#F5F5F5" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+                </div>
+                <p>Sign in</p>
               </div>
-              <p>Sign in</p>
-            </div>
+              :
+              <div className='navbar-signIn cursor-pointer' onClick={async () => {await logOut(); window.location.reload();}}>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path fill="#F5F5F5" d="M4 12a1 1 0 0 0 1 1h7.59l-2.3 2.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l4-4a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76 1 1 0 0 0-.21-.33l-4-4a1.003 1.003 0 1 0-1.42 1.42l2.3 2.29H5a1 1 0 0 0-1 1ZM17 2H7a3 3 0 0 0-3 3v3a1 1 0 0 0 2 0V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-3a1 1 0 1 0-2 0v3a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3Z" /></svg>
+                </div>
+                <p>Log out</p>
+              </div>
+            }
           </div>
           <div className='navbar-svg-bottom absolute bottom-5 -z-11'>
             <svg xmlns="http://www.w3.org/2000/svg" width="430" height="204" fill="none"><path fill="#004567" d="M430 203.8V83.84l-92.6-.29a209.17 209.17 0 0 1-53.72-7.19L0 0v120.06" /></svg>
@@ -116,7 +134,7 @@ useEffect(() => {
             </div>
           </div>
         </div>
-        
+
       }
     </>
   );
