@@ -2,7 +2,6 @@ import { SetStateAction, useEffect, useState } from "react";
 import "./MyEvent.css";
 import { useNavigate } from "react-router-dom";
 import { createClient } from "@supabase/supabase-js";
-import EventCard from "@/components/event-card/Event-card";
 import Navbar from "@/components/navbar/Navbar";
 
 const projectUrl = import.meta.env.VITE_PROJECT_URL;

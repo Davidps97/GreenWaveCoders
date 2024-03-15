@@ -96,12 +96,20 @@ function Navbar() {
               </div>
               <p>Info</p>
             </div>
-            <div className='navbar-li mb-52 cursor-pointer' onClick={() => navigate("/map")}>
+            <div className='navbar-li cursor-pointer' onClick={() => navigate("/map")}>
               <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path fill="#111" d="M12 14c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4Zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2Z" /><path fill="#111" d="M11.42 21.814a.998.998 0 0 0 1.16 0C12.884 21.599 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.995c-.029 6.445 7.116 11.604 7.42 11.819ZM12 4c3.309 0 6 2.691 6 6.005.021 4.438-4.388 8.423-6 9.73-1.611-1.308-6.021-5.294-6-9.735 0-3.309 2.691-6 6-6Z" /></svg>
               </div>
               <p> Map</p>
             </div>
+            {selectedUser &&
+              <div className='navbar-li mb-52 cursor-pointer' onClick={() => navigate("/myEvent")}>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path fill="#000" d="M21 17V8H7v9h14Zm0-14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V1h2v2h8V1h2v2h1ZM3 21h14v2H3a2 2 0 0 1-2-2V9h2v12Zm16-6h-4v-4h4v4Z" /></svg>
+                </div>
+                <p> My Events</p>
+              </div>
+            }
           </div>
           <div className="navbar-bottom">
 
@@ -113,7 +121,7 @@ function Navbar() {
                 <p>Sign in</p>
               </div>
               :
-              <div className='navbar-signIn cursor-pointer' onClick={async () => {await logOut(); window.location.reload();}}>
+              <div className='navbar-signIn cursor-pointer' onClick={async () => { await logOut(); window.location.reload(); }}>
                 <div>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><path fill="#F5F5F5" d="M4 12a1 1 0 0 0 1 1h7.59l-2.3 2.29a1.002 1.002 0 0 0 .325 1.639 1 1 0 0 0 1.095-.219l4-4a1 1 0 0 0 .21-.33 1 1 0 0 0 0-.76 1 1 0 0 0-.21-.33l-4-4a1.003 1.003 0 1 0-1.42 1.42l2.3 2.29H5a1 1 0 0 0-1 1ZM17 2H7a3 3 0 0 0-3 3v3a1 1 0 0 0 2 0V5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-3a1 1 0 1 0-2 0v3a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3Z" /></svg>
                 </div>

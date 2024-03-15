@@ -13,7 +13,7 @@ export default function Information() {
   }
 
   return (
-    <div className='h-auto w-[100vw] flex flex-col bg-[#47A6C2]'>
+    <div className='h-auto w-[100vw] flex flex-col  bg-gradient-to-b from-[#47A6C2] to-[#004567]'>
       <header className="fixed top-0 right-0 left-0 z-[9999]">
         <Navbar />
       </header>
@@ -95,7 +95,7 @@ export default function Information() {
               </div>
             </div>
 
-            <div className='flex flex-col justify-center items-center mx-auto w-5/6 gap-y-4 md:gap-y-6 pl-8 md:pl-0'>
+            <div className='flex flex-col justify-center items-center mx-auto w-5/6 gap-y-4 md:gap-y-6 pl-8 md:pl-0 mb-10'>
               <div className='flex flex-col md:justify-center md:items-center md:mx-auto gap-y-6 md:gap-y-8'>
                 <div className='w-full md:w-[70%] h-auto'>
                   <p className='text-primary-3 text-k-16 md:text-k-20 w-5/6 md:w-full font-karla font-normal text-center mb-4'>
@@ -111,11 +111,6 @@ export default function Information() {
             </div>
           </div>
         </section>
-        <div className='xs:relative mt-6 lg:h-[500px]'>
-          <div className='xs:w-[100%] xs:absolute xs:top-[66px]'>
-            <News />
-          </div>
-        </div>
       </main>
     </div>
   )

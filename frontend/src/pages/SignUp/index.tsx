@@ -100,7 +100,7 @@ const SignUpForm = () => {
       <div className="mb-4">
         <button 
           className="w-[346px] h-11 bg-primary-1 text-primary-4 px-4 py-2 rounded-md"
-          onClick={() => navigate("/sign-in")}
+          onClick={() => navigate("/signin")}
         >
           Sign In
         </button>

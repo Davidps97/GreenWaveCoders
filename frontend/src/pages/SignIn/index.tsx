@@ -14,7 +14,7 @@ const SignInForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [signInError, setSignInError] = useState<string | null>(null);
   const navigate = useNavigate();
-
+//@ts-ignore
   const handleSignIn: Promise<SubmitHandler<FieldValues>> = async ({ email, password }: SignInData) => {
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
